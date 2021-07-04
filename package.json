@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "watch": "webpack --watch",
-    "build": "cross-env NODE_ENV=production webpack",
-    "build:dev": "webpack",
+    "start": "webpack serve --config ./config/webpack/webpack.config.dev.js",
+    "watch": "webpack --watch  --config ./config/webpack/webpack.config.dev.js",
+    "build": "webpack --config ./config/webpack/webpack.config.prod.js",
+    "build:dev": "webpack --config ./config/webpack/webpack.config.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,5 +38,10 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": [
+    "last 2 versions",
+    "> 0.5%",
+    "IE 10"
+  ]
 }

@@ -1,13 +1,9 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const { NODE_ENV } = process.env;
-let mode = NODE_ENV || 'development';
-let target = NODE_ENV === 'production' ? 'browserslist' : 'web';
+const POSTCSS_CONFIG = path.resolve(__dirname, '..', 'postcss.config.js');
 
 module.exports = {
-  mode,
-  target,
-
   module: {
     rules: [
       {
@@ -17,9 +13,12 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: { publicPath: '' },
           },
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: { postcssOptions: { config: POSTCSS_CONFIG } },
+          },
+          { loader: 'sass-loader' },
         ],
       },
       {
