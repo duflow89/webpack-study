@@ -1,3 +1,5 @@
+import './styles/index.scss';
+
 const hello = {
   english: 'hello',
   korean: '안녕',
