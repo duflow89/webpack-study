@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve",
     "watch": "webpack --watch",
-    "build": "webpack",
+    "build:dev": "webpack",
+    "build": "webpack cross-env NODE_ENV=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,10 @@
   },
   "homepage": "https://github.com/duflow89/webpack-study#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"

@@ -3,4 +3,9 @@ const hello = {
   korean: '안녕',
 };
 
-console.log(hello);
+const addHello = {
+  ...hello,
+  spanish: 'hola',
+};
+
+console.log(addHello);
