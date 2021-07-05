@@ -1,13 +1,4 @@
-import './styles/index.scss';
+import { render } from 'react-dom';
+import App from './components/App';
 
-const hello = {
-  english: 'hello',
-  korean: '안녕',
-};
-
-const addHello = {
-  ...hello,
-  spanish: 'hola',
-};
-
-console.log(addHello);
+render(<App />, document.getElementById('root'));
