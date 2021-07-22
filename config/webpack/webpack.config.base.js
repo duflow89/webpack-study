@@ -4,8 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const POSTCSS_CONFIG = path.resolve(__dirname, '..', 'postcss.config.js');
 
 module.exports = {
+  output: {
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
+
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        type: 'asset',
+        // parser: { dataUtlCondition: { masSize: 30 * 1024 } },
+      },
       {
         test: /\.(s[ac]|c)ss$/i,
         use: [
