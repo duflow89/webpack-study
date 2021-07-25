@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react'
 
 const elvenShieldRecipe = {
   leatherStrips: 2,
   ironIngot: 1,
   refinedMoonstone: 4,
-};
+}
 
 // ES7 Object spread example
 const elvenGauntletsRecipe = {
   ...elvenShieldRecipe,
   leather: 1,
   refinedMoonstone: 1,
-};
+}
 
 const Recipes = () => {
-  const [recipe, setRecipe] = useState(elvenShieldRecipe);
+  const [recipe, setRecipe] = useState<any>(elvenShieldRecipe)
 
   return (
     <div>
@@ -32,7 +32,7 @@ const Recipes = () => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Recipes;
+export default Recipes
