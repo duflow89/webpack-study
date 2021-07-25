@@ -3823,6 +3823,15 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"husky@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "husky@npm:7.0.1"
+  bin:
+    husky: lib/bin.js
+  checksum: 1f6d87cab4339551615080664347b60168d81f3c3b84b9dc1f888068d3fe946d8b5513db5ea53bc086f235e6cc617b0aba903552e959596a49f2153ffac33cb4
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -7435,6 +7444,7 @@ fsevents@~2.3.2:
     cross-env: ^7.0.3
     css-loader: ^5.2.6
     html-webpack-plugin: ^5.3.2
+    husky: ^7.0.0
     mini-css-extract-plugin: ^2.0.0
     postcss: ^8.3.5
     postcss-loader: ^6.1.1
