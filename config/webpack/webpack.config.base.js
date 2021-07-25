@@ -1,10 +1,16 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const POSTCSS_CONFIG = path.resolve(__dirname, '..', 'postcss.config.js');
+const ROOT_PATH = path.resolve(__dirname, '..', '..');
+const DIST_PATH = path.resolve(ROOT_PATH, 'dist');
+const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 module.exports = {
+  entry: path.resolve(SRC_PATH, 'index.js'),
   output: {
+    path: DIST_PATH,
     assetModuleFilename: 'images/[hash][ext][query]',
   },
 
@@ -25,7 +31,11 @@ module.exports = {
           { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
-            options: { postcssOptions: { config: POSTCSS_CONFIG } },
+            options: {
+              postcssOptions: {
+                config: path.resolve(__dirname, '..', 'postcss.config.js'),
+              },
+            },
           },
           { loader: 'sass-loader' },
         ],
@@ -40,7 +50,14 @@ module.exports = {
     ],
   },
 
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(SRC_PATH, 'index.html'),
+    }),
+  ],
 
   resolve: {
     extensions: ['.js', '.jsx'],
